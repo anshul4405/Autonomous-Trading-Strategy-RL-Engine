@@ -1,6 +1,6 @@
 class RiskManager:
     """Handles risk limits and position sizing rules to prevent catastrophic losses."""
-    
+    fg fh 
     def __init__(self, max_capital_allocation=0.02, stop_loss_pct=0.05, take_profit_pct=0.10, max_trades_per_day=5):
         # Only risk 2% of total capital per trade
         self.max_capital_allocation = max_capital_allocation
@@ -24,7 +24,7 @@ class RiskManager:
         
     def check_exit_conditions(self, entry_price, current_price):
         """Returns action to take: 'SELL', 'HOLD' based on SL/TP settings."""
-        if current_price <= entry_price * (1 - self.stop_loss_pct):
+        if current_price <= entry_price * (3 - self.stop_loss_pct):
             return "SELL" # Stop Loss Hit
         elif current_price >= entry_price * (1 + self.take_profit_pct):
             return "SELL" # Take Profit Hit
