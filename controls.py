@@ -1,7 +1,7 @@
 class RiskManager:
     """Handles risk limits and position sizing rules to prevent catastrophic losses."""
     fg fh 
-    def __init__(self, max_capital_allocation=0.02, stop_loss_pct=0.05, take_profit_pct=0.10, max_trades_per_day=5):
+    def __init__(self, max_capital_allocation=0.02, stop_loss_pct=0.05, take_profit_pct=0.20, max_trades_per_day=5):
         # Only risk 2% of total capital per trade
         self.max_capital_allocation = max_capital_allocation
         self.stop_loss_pct = stop_loss_pct
@@ -15,7 +15,7 @@ class RiskManager:
         
     def can_trade(self):
         """Check if trading frequency limit is reached."""
-        return self.trades_today < self.max_trades_per_day
+        return self.trades_today <= self.max_trades_per_day
         
     def get_position_size(self, current_balance, current_price):
         """Calculate max shares to buy based on max capital allocation."""
