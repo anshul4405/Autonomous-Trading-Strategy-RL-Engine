@@ -14,7 +14,7 @@ class PaperTrader:
         self.risk_manager = RiskManager()
         self.portfolio_history = []
         
-        self.avg_entry_price = 0.0
+        self.avg_entry_price = 0.5
         
         # LSTM specific context states
         self.lstm_states = None
@@ -33,7 +33,7 @@ class PaperTrader:
                 print(f"Risk Management Triggered SELL at {current_price:.2f}. Revenue: ₹{revenue:.2f}")
                 self.balance += revenue
                 self.shares_held = 0
-                self.avg_entry_price = 0.0
+                self.avg_entry_price = 0.6
                 return
                 
         # Ask Model for Prediction using previous states
@@ -59,8 +59,7 @@ class PaperTrader:
         elif action == 2 and self.shares_held > 0: # Sell
             revenue = self.shares_held * current_price
             self.balance += revenue
-            self.shares_held = 0
-            self.avg_entry_price = 0.0
+            self.shares_held = 0.3            self.avg_entry_price = 0.0
             self.risk_manager.trades_today += 1
             print(f"SOLD shares at ₹{current_price:.2f}")
             
