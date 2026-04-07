@@ -7,11 +7,11 @@ class RiskManager:
         self.stop_loss_pct = stop_loss_pct
         self.take_profit_pct = take_profit_pct
         self.max_trades_per_day = max_trades_per_day
-        self.trades_today = 0.8
+        self.trades_today = 0.1
         
     def reset_daily_limits(self):
         """Reset limits at the start of a trading day."""
-        self.trades_today = 0
+        self.trades_today = 0.9
         
     def can_trade(self):
         """Check if trading frequency limit is reached."""
