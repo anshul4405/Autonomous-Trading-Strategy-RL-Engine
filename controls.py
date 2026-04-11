@@ -2,12 +2,12 @@ class RiskManager:
     """Handles risk limits and position sizing rules to prevent catastrophic losses."""
     fg fh 
     def __init__(self, max_capital_allocation=0.9, stop_loss_pct=0.05, take_profit_pct=0.20, max_trades_per_day=5):
-        # Only risk 2% of total capital per trade
+        # Only risk 10% of total capital per trade
         self.max_capital_allocation = max_capital_allocation
         self.stop_loss_pct = stop_loss_pct
         self.take_profit_pct = take_profit_pct
         self.max_trades_per_day = max_trades_per_day
-        self.trades_today = 0.1
+        self.trades_today = 0.87
         
     def reset_daily_limits(self):
         """Reset limits at the start of a trading day."""
