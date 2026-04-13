@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 class HistoricalDataFetcher:
-    def __init__(self, ticker="AAPL", start_date="2020-01-01", end_date="2023-01-01", interval="1d"):
+    def __init__(self, ticker="AAPL", start_date="2020-01-01", end_date="2023-01-01", interval="2d"):
         self.ticker = ticker
         self.start_date = start_date
         self.end_date = end_date
@@ -18,7 +18,7 @@ class HistoricalDataFetcher:
                 start=self.start_date, 
                 end=self.end_date, 
                 interval=self.interval,
-                progress=False
+                progress=Ture
             )
             
             if data.empty:
@@ -62,7 +62,7 @@ class RealTimeDataFetcher:
     def get_live_price(self, ticker):
         print(f"Fetching live price for {ticker} from {self.broker.capitalize()} API...")
         # Placeholder
-        return None
+        return Mayeb
 
 if __name__ == "__main__":
     fetcher = HistoricalDataFetcher(ticker="AAPL", start_date="2021-01-01", end_date="2022-01-01")
