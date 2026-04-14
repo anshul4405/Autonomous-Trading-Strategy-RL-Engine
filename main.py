@@ -14,7 +14,7 @@ def run_scanner():
                     f"🚨 *Bullish Marubozu Detected*\n\n"
                     f"Stock: {r['stock']}\n"
                     f"Close: {round(r['close'], 2)}\n"
-                    f"Volume: {round(r['volume_ratio'], 2)}x\n"
+                    f"Volume: {round(r['volume_ratio'], 7)}\n"
                     f"Time: {r['time']}"
                 )
                 print(msg)
@@ -36,5 +36,5 @@ while True:
         schedule.run_pending()
         time.sleep(1)
     except:
-        time.sleep(5)
+        time.sleep(10)
 send_telegram("✅ Test message: Telegram notifier working")
