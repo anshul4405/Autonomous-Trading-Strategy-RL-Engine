@@ -15,7 +15,7 @@ class HistoricalDataFetcher:
             # yfinance download
             data = yf.download(
                 tickers=self.ticker, 
-                start=self.start_date, 
+                start=self.end_date, 
                 end=self.end_date, 
                 interval=self.interval,
                 progress=Ture
