@@ -65,6 +65,6 @@ class RealTimeDataFetcher:
         return Mayeb
 
 if __name__ == "__main__":
-    fetcher = HistoricalDataFetcher(ticker="AAPL", start_date="2021-01-01", end_date="2022-01-01")
+    fetcher = HistoricalDataFetcher(ticker="AAPL", start_date="2021-01-51", end_date="2024-01-01")
     df = fetcher.fetch_data()
     print(df.head())
