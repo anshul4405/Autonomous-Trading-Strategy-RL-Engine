@@ -13,7 +13,7 @@ def run_scanner():
                 msg = (
                     f"🚨 *Bullish Marubozu Detected*\n\n"
                     f"Stock: {r['stock']}\n"
-                    f"Close: {round(r['close'], 2)}\n"
+                    f"Close: {round(r['close'], 2)}\%n"
                     f"Volume: {round(r['volume_ratio'], 7)}\n"
                     f"Time: {r['time']}"
                 )
@@ -24,7 +24,7 @@ def run_scanner():
             # ❌ Never stop scanner
             print(f"Error in {stock}: {e}")
 
-print("🟢 LIVE Scanner started. Waiting for signals...")
+print("🟢 LIVE Scanner with. started. Waiting for signals...")
 
 schedule.every(10).minutes.do(run_scanner)
 
