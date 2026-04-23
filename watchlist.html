@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Watchlist | Kinetic Vault</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>KINETIC VAULT</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="/" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    Dashboard
+                </a>
+                <a href="/watchlist" class="nav-link active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    Watchlist
+                </a>
+                <a href="#" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    Markets
+                </a>
+                <a href="#" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    Portfolio
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    Support
+                </a>
+                <a href="#" class="nav-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    Sign Out
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="search-container">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" placeholder="Search assets...">
+                </div>
+                <div class="user-actions">
+                    <div class="avatar"></div>
+                </div>
+            </header>
+
+            <div class="watchlist-layout">
+                <div class="watchlist-content">
+                    <div class="watchlist-header">
+                        <div>
+                            <h1>Market Watchlist</h1>
+                            <p>Real-time performance of your tracked assets.</p>
+                        </div>
+                        <button class="btn-primary" style="margin:0">+ Add to Watchlist</button>
+                    </div>
+
+                    <div class="filters-bar">
+                        <div class="filter-group">
+                            <span class="filter-label">SECTOR:</span>
+                            <span class="filter-value">Technology</span>
+                        </div>
+                        <div class="filter-group">
+                            <span class="filter-label">MARKET CAP:</span>
+                            <span class="filter-value">Mega-Cap ($200B+)</span>
+                        </div>
+                        <div class="filter-group">
+                            <span class="filter-label">SORT BY:</span>
+                            <span class="filter-value">24h Change</span>
+                        </div>
+                    </div>
+
+                    <div class="watchlist-table-container">
+                        <table class="watchlist-table">
+                            <thead>
+                                <tr>
+                                    <th>SYMBOL</th>
+                                    <th>COMPANY NAME</th>
+                                    <th>PRICE</th>
+                                    <th>24H CHANGE</th>
+                                    <th>MARKET CAP</th>
+                                </tr>
+                            </thead>
+                            <tbody id="watchlist-body">
+                                <!-- Data will be populated via JS or kept static for demo -->
+                                <tr class="active" data-symbol="NVDA" data-name="NVIDIA Corporation" data-price="$875.28" data-change="+4.82%" data-high="$881.02" data-open="$862.40" data-vol="42.1M" data-pe="74.2">
+                                    <td class="symbol-cell">NVDA</td>
+                                    <td><span class="company-cell">NVIDIA Corporation</span></td>
+                                    <td>$875.28</td>
+                                    <td class="text-green">+4.82%</td>
+                                    <td>$2.15T</td>
+                                </tr>
+                                <tr data-symbol="AAPL" data-name="Apple Inc." data-price="$192.53" data-change="+1.24%" data-high="$193.10" data-open="$191.20" data-vol="52.4M" data-pe="28.5">
+                                    <td class="symbol-cell">AAPL</td>
+                                    <td><span class="company-cell">Apple Inc.</span></td>
+                                    <td>$192.53</td>
+                                    <td class="text-green">+1.24%</td>
+                                    <td>$3.02T</td>
+                                </tr>
+                                <tr data-symbol="TSLA" data-name="Tesla, Inc." data-price="$175.43" data-change="-2.14%" data-high="$179.50" data-open="$178.10" data-vol="88.2M" data-pe="42.1">
+                                    <td class="symbol-cell">TSLA</td>
+                                    <td><span class="company-cell">Tesla, Inc.</span></td>
+                                    <td>$175.43</td>
+                                    <td class="text-red">-2.14%</td>
+                                    <td>$558.1B</td>
+                                </tr>
+                                <tr data-symbol="MSFT" data-name="Microsoft Corp." data-price="$415.10" data-change="+0.55%" data-high="$417.20" data-open="$414.50" data-vol="22.1M" data-pe="35.2">
+                                    <td class="symbol-cell">MSFT</td>
+                                    <td><span class="company-cell">Microsoft Corp.</span></td>
+                                    <td>$415.10</td>
+                                    <td class="text-green">+0.55%</td>
+                                    <td>$3.08T</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="asset-details-panel">
+                    <div class="detail-header">
+                        <div class="detail-main">
+                            <h2 id="detail-symbol">NVDA</h2>
+                            <p id="detail-name">NVIDIA Corporation • NASDAQ</p>
+                        </div>
+                        <button class="icon-btn" style="color:var(--accent-blue)"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></button>
+                    </div>
+
+                    <div class="detail-price-section">
+                        <h3 id="detail-price">$875.28</h3>
+                        <span class="trend up text-green" id="detail-change">+4.82% Today</span>
+                    </div>
+
+                    <div class="mini-stats-grid">
+                        <div class="mini-stat">
+                            <label>Open</label>
+                            <span id="detail-open">$862.40</span>
+                        </div>
+                        <div class="mini-stat">
+                            <label>High</label>
+                            <span id="detail-high">$881.02</span>
+                        </div>
+                        <div class="mini-stat">
+                            <label>Volume</label>
+                            <span id="detail-vol">42.1M</span>
+                        </div>
+                        <div class="mini-stat">
+                            <label>P/E Ratio</label>
+                            <span id="detail-pe">74.2</span>
+                        </div>
+                    </div>
+
+                    <div class="insight-box">
+                        <h4>SYSTEM INSIGHT</h4>
+                        <p id="detail-insight">NVIDIA continues its bullish momentum following the AI infrastructure expansion news. Technical indicators show strong support at $855.00. High volatility expected during market close.</p>
+                    </div>
+
+                    <div class="action-row">
+                        <button class="btn-buy">BUY</button>
+                        <button class="btn-sell">SELL</button>
+                    </div>
+                    <button class="btn-alert">Set Price Alert</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        document.querySelectorAll('.watchlist-table tr[data-symbol]').forEach(row => {
+            row.addEventListener('click', () => {
+                document.querySelectorAll('.watchlist-table tr').forEach(r => r.classList.remove('active'));
+                row.classList.add('active');
+                
+                document.getElementById('detail-symbol').textContent = row.dataset.symbol;
+                document.getElementById('detail-name').textContent = row.dataset.name + ' • NASDAQ';
+                document.getElementById('detail-price').textContent = row.dataset.price;
+                document.getElementById('detail-change').textContent = row.dataset.change + ' Today';
+                document.getElementById('detail-open').textContent = row.dataset.open;
+                document.getElementById('detail-high').textContent = row.dataset.high;
+                document.getElementById('detail-vol').textContent = row.dataset.vol;
+                document.getElementById('detail-pe').textContent = row.dataset.pe;
+                
+                // Randomize insight for demo
+                const insights = [
+                    "Strong buy signals detected across multiple timeframes. Institutional volume increasing.",
+                    "Price konsolidation expected ahead of earnings report next week.",
+                    "Oversold conditions being met. Rebound potential of 5-8% in coming sessions.",
+                    "Maintains bullish structure despite broader market weakness."
+                ];
+                document.getElementById('detail-insight').textContent = insights[Math.floor(Math.random() * insights.length)];
+                
+                const isUp = row.dataset.change.includes('+');
+                document.getElementById('detail-change').className = 'trend ' + (isUp ? 'up text-green' : 'down text-red');
+            });
+        });
+    </script>
+</body>
+</html>
