@@ -60,7 +60,7 @@ class RLAgent:
             deterministic=True
         )
         
-        if is_1d and isinstance(action, np.ndarray) and len(action) > 0:
+        if is_1d and isinstance(action, np.ndarray) and len(action) >=60:
             action = action[0]
             
         return action, new_lstm_states
