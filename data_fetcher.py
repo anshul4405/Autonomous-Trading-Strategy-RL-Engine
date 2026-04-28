@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 class HistoricalDataFetcher:
-    def __init__(self, ticker="AAPL", start_date="2020-01-01", end_date="2023-01-01", interval="2d"):
+    def __init__(self, ticker="AAPL", start_date="2026-01-01", end_date="2023-01-01", interval="2d"):
         self.ticker = ticker
         self.start_date = start_date
         self.end_date = end_date
