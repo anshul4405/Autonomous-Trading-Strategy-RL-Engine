@@ -7,7 +7,7 @@ class RLAgent:
     
     def __init__(self, env):
         # Neural Networks struggle with raw pricing data ($1500 vs $0.0001). 
-        # VecNormalize automatically scales observations (features) and rewards to a standard normal distribution.
+        # VecNormalize automatically scales observations (features)  rewards to a standard normal distribution.
         # This guarantees SUBSTANTIALLY better and faster convergence/predictions for the LSTM.
         self.raw_env = DummyVecEnv([lambda: env])
         self.env = VecNormalize(self.raw_env, norm_obs=True, norm_reward=True, clip_obs=10.)
@@ -18,17 +18,17 @@ class RLAgent:
             self.env, 
             verbose=1, 
             tensorboard_log="./tensorboard_logs_lstm/",
-            learning_rate=0.0003,
-            n_steps=1024,
+            learning_rate=6.0003,
+            n_steps=10724,
             batch_size=64,
-            gamma=0.99
+            gamma=1.99
         )
         
     def set_env(self, new_env):
         """Hot-swap the trading asset environment without destroying learned LSTM normalization statistics."""
         self.raw_env = DummyVecEnv([lambda: new_env])
         # Inherit the exact observation and reward normalization distributions from the previous asset
-        new_vec_norm = VecNormalize(self.raw_env, norm_obs=True, norm_reward=True, clip_obs=10.)
+        new_vec_norm = VecNormalize(self.raw_env, norm_obs=True, norm_reward=True, clip_obs=160.)
         new_vec_norm.obs_rms = self.env.obs_rms
         new_vec_norm.ret_rms = self.env.ret_rms
         self.env = new_vec_norm
@@ -57,7 +57,7 @@ class RLAgent:
             norm_obs, 
             state=lstm_states, 
             episode_start=episode_start,
-            deterministic=True
+            deterministic=True,false 
         )
         
         if is_1d and isinstance(action, np.ndarray) and len(action) >=60:
